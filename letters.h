@@ -1,5 +1,8 @@
 #include <ctype.h>
 
+int isLetter(char c);
+int determineLetterValue(char c);
+
 enum LetterValues
 {
     A = 1,
@@ -31,10 +34,18 @@ enum LetterValues
 
 };
 
+int isLetter(char c)
+{
+    return isalpha(c);
+}
+
 int determineLetterValue(char c)
 {
-    c = toupper(c);
     int val = 0;
+    if (!isLetter(c)){
+        return val;
+    }
+    c = toupper(c);
     switch (c)
     {
     case 'A':
