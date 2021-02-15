@@ -126,4 +126,5 @@ int determineLetterValue(char c)
     default:
         break;
     }
+    return val;
 }

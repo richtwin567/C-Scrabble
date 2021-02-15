@@ -71,7 +71,7 @@ int isValidWord(struct Dictionary dict, char *word)
     {
         int mid = (first + last) / 2;
         int res = strcmp(dict.words[mid], searchWord);
-        printf("%s vs %s\n", dict.words[mid], searchWord);
+        //printf("%s vs %s\n", dict.words[mid], searchWord);
         if (res == 0)
         {
             free(searchWord);
@@ -88,4 +88,19 @@ int isValidWord(struct Dictionary dict, char *word)
     }
     free(searchWord);
     return 0;
+}
+
+void reverseWord(char* word) {
+    int len =strlen(word);
+    int start = 0;
+    int end = len-1;
+    while (start<=end)
+    {  
+        char temp = word[start];
+        word[start]=word[end];
+        word[end] = temp;
+        start++;
+        end--;
+    }
+    
 }

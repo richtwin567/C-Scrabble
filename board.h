@@ -23,14 +23,14 @@ struct Move
     char letter;              // The letter to be placed at coords
 };
 
-static int isOnBoard(struct Board board, int x, int y);
+int isOnBoard(struct Board board, int x, int y);
 static int getColumnIndex(int userColumnInput);
 static int getRowIndex(int userRowInput);
 static int getLogicalRow(int index);
 static int getLogicalCol(int index);
 static void initGrid(struct Board board);
 static void calcRowsAndLines(int const LOGICAL_SIZE, int *ROW_COUNT, int *LINE_LENGTH);
-struct Board getNewBoard(struct Board board, int const LOGICAL_SIZE);
+struct Board getNewBoard(int const LOGICAL_SIZE);
 void drawBoard(struct Board board);
 int makePlay(struct Board board, struct Move move);
 static void startBoard(struct Board board, int x);
@@ -49,7 +49,7 @@ static int isPositionEmpty(struct Board board, struct BoardCoord);
     return 0;
 } */
 
-static int isOnBoard(struct Board board, int row, int col)
+int isOnBoard(struct Board board, int row, int col)
 {
     return (row <= board.size && row >= 1) && (col <= board.size && col >= 1);
 }
@@ -141,11 +141,12 @@ static void calcRowsAndLines(int const LOGICAL_SIZE, int *ROW_COUNT, int *LINE_L
     *LINE_LENGTH = 4 * (LOGICAL_SIZE + 1);
 }
 
-struct Board getNewBoard(struct Board board, int const LOGICAL_SIZE)
+struct Board getNewBoard(int const LOGICAL_SIZE)
 {
     //creates a brand new blank board. Returns a pointer to the array
     int ROW_COUNT;
     int LINE_LENGTH;
+    struct Board board;
     calcRowsAndLines(LOGICAL_SIZE, &ROW_COUNT, &LINE_LENGTH);
     board.size = LOGICAL_SIZE;
     board.rowCount = ROW_COUNT;
