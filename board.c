@@ -1,4 +1,16 @@
-#include <stdio.h>
+/**
+ * @file board.c
+ * @author Anakai Richards
+ * @brief 
+ * @version 0.1
+ * @date 2021-02-15
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
+// TODO - game instructions, player names, confirm quit
+
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>

@@ -1,3 +1,13 @@
+/**
+ * @file letters.h
+ * @author Anakai Richards
+ * @brief 
+ * @version 0.1
+ * @date 2021-02-15
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 #include <ctype.h>
 
 int isLetter(char c);
