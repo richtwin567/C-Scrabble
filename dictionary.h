@@ -29,29 +29,35 @@ struct Dictionary loadDictionary()
     int i = 0;                   // Keeps track of the size of the array
 
     fp = fopen("words.txt", "r");
-
-    // initialize words array
-    dict.words = calloc(1, sizeof *dict.words);
-    dict.words[i] = calloc(LONGEST_WORD, sizeof *(dict.words[i]));
-    fscanf(fp, "%s", dict.words[i]);
-
-    // read all words provided in word.txt line by line
-    while (!feof(fp))
+    if (fp != NULL)
     {
-        i++;
-        dict.words = realloc(dict.words, (i + 1) * sizeof *dict.words);
+        // initialize words array
+        dict.words = calloc(1, sizeof *dict.words);
         dict.words[i] = calloc(LONGEST_WORD, sizeof *(dict.words[i]));
         fscanf(fp, "%s", dict.words[i]);
-        //printf("\n%d %s", i, dict.words[i]);
+
+        // read all words provided in word.txt line by line
+        while (!feof(fp))
+        {
+            i++;
+            dict.words = realloc(dict.words, (i + 1) * sizeof *dict.words);
+            dict.words[i] = calloc(LONGEST_WORD, sizeof *(dict.words[i]));
+            fscanf(fp, "%s", dict.words[i]);
+        }
+
+        // set size
+        dict.size = i;
+
+        // close file
+        fclose(fp);
+
+        return dict;
     }
-
-    // set size
-    dict.size = i;
-
-    // close file
-    fclose(fp);
-
-    return dict;
+    else
+    {
+        fprintf(stderr, "\nCan't find the dictionary.");
+        exit(1);
+    }
 }
 
 int isValidWord(struct Dictionary dict, char *word)
@@ -71,7 +77,6 @@ int isValidWord(struct Dictionary dict, char *word)
     {
         int mid = (first + last) / 2;
         int res = strcmp(dict.words[mid], searchWord);
-        //printf("%s vs %s\n", dict.words[mid], searchWord);
         if (res == 0)
         {
             free(searchWord);
@@ -90,17 +95,19 @@ int isValidWord(struct Dictionary dict, char *word)
     return 0;
 }
 
-void reverseWord(char* word) {
-    int len =strlen(word);
+/* 
+void reverseWord(char *word)
+{
+    int len = strlen(word);
     int start = 0;
-    int end = len-1;
-    while (start<=end)
-    {  
+    int end = len - 1;
+    while (start <= end)
+    {
         char temp = word[start];
-        word[start]=word[end];
+        word[start] = word[end];
         word[end] = temp;
         start++;
         end--;
     }
-    
 }
+ */
