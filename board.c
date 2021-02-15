@@ -472,6 +472,12 @@ int main()
             gameData.p1score += turnTotal;
             printf(" You now have %d points.\n\n", gameData.p1score);
         }
+        // free the memory taken up by checking the words for this round
+        for (int i = 0; i < 8; i++)
+        {
+            free(words[i]);
+        }
+        free(words);
     }
 
     int isBoardFull()
