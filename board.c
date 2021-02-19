@@ -304,7 +304,7 @@ int main()
             if (scanf("%c", &confirm) == 0)
             {
                 check = 1;
-                printf("\n2Invalid answer. You must enter y for yes or n for no. Please re-enter: \n");
+                printf("\nInvalid answer. You must enter y for yes or n for no. Please re-enter: \n");
             }
             else
             {
