@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "*.h": "c",
+        "random": "c",
+        "*.tcc": "c",
+        "string_view": "c",
+        "fstream": "c",
+        "iosfwd": "c",
+        "istream": "c",
+        "ostream": "c",
+        "sstream": "c",
+        "stdexcept": "c",
+        "streambuf": "c"
+    }
+}

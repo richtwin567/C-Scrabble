@@ -13,6 +13,10 @@
 int isLetter(char c);
 int determineLetterValue(char c);
 
+/**
+ * @brief Stores all the letter values as specified by the instructions
+ * 
+ */
 enum LetterValues
 {
     A = 1,
@@ -44,11 +48,23 @@ enum LetterValues
 
 };
 
+/**
+ * @brief Checks if the character passed is a letter
+ * 
+ * @param c the character to check
+ * @return int a non-zero integer if c is a letter or 0 otherwise
+ */
 int isLetter(char c)
 {
     return isalpha(c);
 }
 
+/**
+ * @brief Returns the value of the character given
+ * 
+ * @param c a letter
+ * @return int the value of the letter
+ */
 int determineLetterValue(char c)
 {
     int val = 0;

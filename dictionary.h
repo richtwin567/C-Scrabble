@@ -16,21 +16,21 @@
 struct Dictionary loadDictionary();
 int isValidWord(struct Dictionary dict, char *word);
 
+/**
+ * @brief A representaion of a dictionary 
+ * 
+ */
 struct Dictionary
 {
     int size;
     char **words;
 };
 
-/* int main()
-{
-    struct Dictionary dict;
-    dict = loadDictionary();
-    int v = isValidWord(dict, "apple");
-    printf("\n%d", v);
-    return 0;
-} */
-
+/**
+ * @brief Loads the words from words.txt into a dictionary
+ * 
+ * @return struct Dictionary the dictionary
+ */
 struct Dictionary loadDictionary()
 {
     struct Dictionary dict;      // The dictionary to be filled
@@ -70,6 +70,13 @@ struct Dictionary loadDictionary()
     }
 }
 
+/**
+ * @brief Searches the dictionary to find the given word. The word is valid once it is found.
+ * 
+ * @param dict the dictionary to search in 
+ * @param word the word to search for
+ * @return int 1 if the word is valid or 0 if the word is invalid
+ */
 int isValidWord(struct Dictionary dict, char *word)
 {
     // ensure that word is in uppercase
@@ -103,21 +110,4 @@ int isValidWord(struct Dictionary dict, char *word)
     }
     free(searchWord);
     return 0;
-}
-
-/* 
-void reverseWord(char *word)
-{
-    int len = strlen(word);
-    int start = 0;
-    int end = len - 1;
-    while (start <= end)
-    {
-        char temp = word[start];
-        word[start] = word[end];
-        word[end] = temp;
-        start++;
-        end--;
-    }
-}
- */
+}// end function isValidWord

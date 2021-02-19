@@ -9,7 +9,6 @@
  * 
  */
 
-
 struct Board
 {
     int size;       // The size of the board grid
@@ -32,7 +31,9 @@ struct Move
 
 struct Game
 {
-    int turn;
-    int p1score;
-    int p2score;
+    int turn;        // The game turn count
+    int p1score;     // The score for player 1
+    int p2score;     // The score for player 2
+    char p1name[30]; // Player 1's name
+    char p2name[30]; // Player 2's name
 };
